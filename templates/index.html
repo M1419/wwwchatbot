@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>wwwchatbot</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light only" />
+		<meta name="description" content="wwwchatbot is an AI Chatbot powered by OpenAI ChatGPT3.5" />
+		<meta property="og:description" content="wwwchatbot is an AI Chatbot powered by OpenAI ChatGPT3.5" />
+		<meta property="og:site_name" content="wwwchatbot" />
+		<meta property="og:title" content="wwwchatbot" />
+		<meta property="og:type" content="website" />
+    <link type="image/x-icon" rel="icon" href="{{ url_for('static', filename='stylesheets/favicon.ico') }}"/>
+    <link href="https://fonts.googleapis.com/css2?display=swap&family=Poppins:ital,wght@0,400;1,400" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}"/>
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/noscript.css') }}" /></noscript>
+  </head>
+  <body class="is-loading">
+	<audio hidden autoplay>
+		<source src="{{ url_for('static', filename='stylesheets/ss.ogg') }}" type="audio/ogg" >
+		<source src="{{ url_for('static', filename='stylesheets/ss.mp3') }}" type="audio/mpeg" >
+		Your browser does not support the audio element.
+	  </audio>	  
+	<div id="wrapper">
+		<div id="main">
+			<div class="inner">
+				<p id="text03">AI Chatbot powered by OpenAI ChatGPT3.5</p>
+				<p id="text02"><a href="https://example.com">--redacted--</a> © 2038. <a href="https://example.com">survey</a></p>
+				<hr id="divider03">
+				<div id="container01" class="container columns">
+					<div class="wrapper">
+						<div class="inner" data-reorder="1,0">
+							<div>
+								<form enctype="multipart/form-data" id="form01" method="post" action="">
+									<div class="inner">
+										<div class="field">
+											<input type="text" name="chatusername" id="form01-username" placeholder="username" maxlength="256" value="{{ chatusername }}" required />
+										</div>
+										<div class="field">
+											<textarea data-gramm_editor="false" name="userinput" id="form01-may-i-take-your-order" placeholder="May I take your order?" required>{{ userinput }}</textarea>
+										</div>
+										<div class="actions">
+											<button type="submit">send</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div>
+								<div id="embed01">
+									<div id="chat">
+									{% for message in messages %}
+									<div class="message {{ message.role }}">
+										<strong>{{ message.role }}:</strong> {{ message.content }}
+									</div>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{{url_for('static', filename='stylesheets/main.js')}}"></script>
+	<script>
+	  // JavaScript code for auto-scrolling the chat container
+	  const chatContainer = document.getElementById("chat");
+	  
+	  // Function to scroll the chat container to the bottom
+	  function scrollToBottom() {
+		chatContainer.scrollTop = chatContainer.scrollHeight;
+	  }
+	  
+	  // Call the scroll function after the page loads
+	  window.addEventListener("load", scrollToBottom);
+	  
+	  // Call the scroll function whenever a new message is added to the chat
+	  function addNewMessage() {
+		scrollToBottom();
+	  }
+	  
+	  // Example usage: Call the addNewMessage function whenever a new message is added to the chat
+	  addNewMessage();
+	</script>
+</body>
+</html>
