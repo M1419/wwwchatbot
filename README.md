@@ -1,4 +1,4 @@
-# wwwchatbot.live
+# wwwchatbot
 ###### AI ChatBot Webapp/ openAI gpt3.5 turbo / college project.
 ###### CS209 - Introduction to Artificial Intelligence / group project.
 ###### June 2023
