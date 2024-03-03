@@ -9,5 +9,5 @@
 3. activate venv `.\.venv\Scripts\activate` (venv activation command varies depending on operating system)
 4. install requirements `pip install -r requirements.txt`
 5. enter your api key in `.env`
-6. `python waitress_server.py`
+6. `python app.py`
 7. head to http://localhost:8080
